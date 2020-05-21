@@ -1,0 +1,56 @@
+package com.cognixia.jump.corejava.flowcontrol;
+
+import java.util.Scanner;
+
+public class WhileLoopRunner {
+	public static void main(String[] args) {
+		
+//		runWhile();
+//		runBooleanWhile();
+//		runDoWhile();
+		
+	}
+
+	public static void runWhile() {
+//		Initializing a counter
+		int counter = 1;
+//		Declaring the condition for the while loop
+//		The loop will continue until this is met
+		while (counter < 10){
+		     System.out.println(counter);
+//		     Incrementing a counter 
+		     counter++;
+		}
+	}
+	
+	public static void runBooleanWhile() {
+		boolean condition1 = true;
+		int counter = 1;
+		
+//		This loop will run continuously until the condition is flipped
+		while (condition1){
+			 counter++;
+//			 Here is a second condition that will flip the boolean on the loop.
+			 if (counter > 10) {
+			 	condition1 = false;
+			 }
+		}
+
+	}
+	
+	public static void runDoWhile() {
+		boolean condition = false;
+		
+//		The do-while loop will execute its code once before checking the looping condition
+		do {     
+		     System.out.println("This will only print once");
+		} while (condition);
+		
+//		A while loop will check its condition before executing is code
+		while (condition) {
+			System.out.println("This will never print");
+		}		
+		
+	}
+
+}

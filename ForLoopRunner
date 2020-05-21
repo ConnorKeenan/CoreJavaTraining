@@ -1,0 +1,76 @@
+package com.cognixia.jump.corejava.flowcontrol;
+
+public class ForLoopRunner {
+	public static void main(String[] args) {
+
+		runForLoop();
+		runAltForLoop();
+		runNestedForLoop();
+		System.out.println(loopBreak(99));
+	}
+
+	public static void runForLoop() {
+//		A for loop will set a local variable, check its value, then increment it.
+		for (int i = 0; i < 10; i++) {
+//			A for loop will execute its code each time the condition in the middle block is false
+			System.out.println(i);
+		}
+
+	}
+	
+	public static void runAltForLoop() {
+		
+		boolean condition = true;
+		
+//		This for loop has unusual conditions and increments, but it is still a valid for loop
+		for (int i = 1; condition || i == 31; i *= 5){
+		     if (i % 3 == 0){
+		          condition = false;
+		     }
+		     System.out.println(i);
+		}
+
+	}
+	
+	public static void runNestedForLoop() {
+		int area = 0;
+		
+//		This outer for loop will execute for the number of times given in the condition
+		for (int length = 1; length < 4; length++){
+			
+//			This inner for loop for the number of times given in the condition; 
+//			*for each iteration of the outer loop.
+			for (int width = 1; width < 4; width++){
+		     area = length * width;
+		     System.out.println("length: " + length + ", width: " + area + ", area: " + area);
+		}
+//		Each line of this program will output the area of a rectangle of the given length and width
+		System.out.println("");
+		}
+
+	}
+	
+	public static int loopBreak(int x) {
+		
+//		This for loop has several loop-and-a-half conditions
+		for (int i = x; i < 100; i++) {
+			
+//			This if statement has a continue, which skips the print out on even numbered loops
+			if (i%2 == 0) {
+				continue;
+			
+//			This if statement will cause the method to return a value on multiples of the passed in
+//			A return will automatically end a loop as it removes all resources associated with the method	
+			} else if (i%x == 0) {
+				return i;
+
+//			This if statement will end the loop completely if i becomes larger than x.
+			} else if (i > x) {
+				break;
+			}
+			System.out.println(i);
+		}
+		
+		return 0;
+	}
+}
